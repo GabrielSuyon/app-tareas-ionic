@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content ion-text-center">
+
+    <!-- LOADING -->
+    <div *ngIf="loading" class="ion-padding">
+      <ion-spinner name="crescent"></ion-spinner>
+    </div>
+
+    <div *ngIf="!loading">
+
+      <!-- FOTO -->
+      <div class="avatar-container" (click)="changePhoto()">
+        <ion-avatar class="avatar">
+          <img *ngIf="user?.photo_url" [src]="user.photo_url" alt="foto de perfil"/>
+          <ion-icon *ngIf="!user?.photo_url" name="person-circle-outline"></ion-icon>
+        </ion-avatar>
+        <div class="camera-badge">
+          <ion-spinner *ngIf="uploadingPhoto" name="crescent" color="light"></ion-spinner>
+          <ion-icon *ngIf="!uploadingPhoto" name="camera-outline"></ion-icon>
+        </div>
+      </div>
+
+      <!-- NOMBRE -->
+      <h2>{{ user?.name || 'Sin nombre' }}</h2>
+      <p>{{ user?.email }}</p>
+
+      <!-- BOTONES -->
+      <div class="actions ion-padding">
+
+        <ion-button expand="block" mode="ios" (click)="changeName()">
+          <ion-icon slot="start" name="pencil-outline"></ion-icon>
+          Cambiar nombre
+        </ion-button>
+
+        <ion-button expand="block" mode="ios" (click)="changeEmail()">
+          <ion-icon slot="start" name="mail-outline"></ion-icon>
+          Cambiar correo
+        </ion-button>
+
+        <ion-button expand="block" mode="ios" color="danger" (click)="signOut()">
+          <ion-icon slot="start" name="log-out-outline"></ion-icon>
+          Cerrar sesión
+        </ion-button>
+
+      </div>
+    </div>
+
+  </div>
+
+  <ion-action-sheet
+  [isOpen]="isActionSheetOpen"
+  header="Foto de perfil"
+  [buttons]="actionSheetButtons"
+  (didDismiss)="isActionSheetOpen = false">
+</ion-action-sheet>
+
+</ion-content>

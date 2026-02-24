@@ -1,0 +1,44 @@
+
+ion-button{
+    margin-top: 50px;
+}
+.avatar-container {
+  position: relative;
+  display: inline-block;
+  margin: 30px auto 10px;
+  cursor: pointer;
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+
+    ion-icon {
+      font-size: 120px;
+      color: var(--ion-color-medium);
+    }
+  }
+
+  .camera-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: var(--ion-color-primary);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}

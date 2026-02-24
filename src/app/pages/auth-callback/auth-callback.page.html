@@ -1,0 +1,25 @@
+<ion-content>
+  <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; padding: 40px; text-align:center; background: var(--ion-background-color);">
+
+    <!-- ÉXITO -->
+    <div *ngIf="status === 'success'">
+      <ion-icon name="checkmark-circle-outline" style="font-size: 80px; color: #2dd36f"></ion-icon>
+      <h2 style="color: var(--ion-text-color)">¡Correo actualizado!</h2>
+      <p style="color: var(--ion-color-medium)">Tu correo ha sido cambiado correctamente.<br>Puedes cerrar esta pestaña.</p>
+    </div>
+
+    <!-- ERROR -->
+    <div *ngIf="status === 'error'">
+      <ion-icon name="close-circle-outline" style="font-size: 80px; color: #eb445a"></ion-icon>
+      <h2 style="color: var(--ion-text-color)">Error</h2>
+      <p style="color: var(--ion-color-medium)">{{ message }}</p>
+    </div>
+
+    <!-- LOADING -->
+    <div *ngIf="status === 'loading'">
+      <ion-spinner name="crescent"></ion-spinner>
+      <p>Verificando...</p>
+    </div>
+
+  </div>
+</ion-content>
